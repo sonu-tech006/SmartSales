@@ -1,0 +1,8 @@
+{
+  "name": "SmartSales — Sales Forecasting & Analytics Platform",
+  "description": "Enterprise sales forecasting, real-time analytics, statistical time-series modeling (Holt-Winters, Moving Averages), and CSV data ingestion pipeline.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
