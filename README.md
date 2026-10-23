@@ -1,103 +1,205 @@
-# SmartSales — Sales Forecasting & Analytics Platform
+<div align="center">
 
-An enterprise-grade, end-to-end sales forecasting and analytics platform built for data engineers, machine learning engineers, and revenue analysts.
+# 🚀 SmartSales — Sales Forecasting & Analytics Platform
+### *Enterprise ML-Powered Sales Forecasting, ETL Ingestion & Automated Anomaly Detection*
 
-Features an automated CSV ETL ingestion pipeline, schema profiling, real-time sales aggregation, and genuine statistical time-series forecasting (Holt-Winters Double Exponential Smoothing and Linear Trend with Cyclical Seasonality) with strict chronological holdout test validation (MAE, RMSE, MAPE) and 95% confidence intervals.
+[![Live Demo](https://img.shields.io/badge/Live_App-https%3A%2F%2Fsmartsales.ai.studio-4F46E5?style=for-the-badge&logo=googlecloud&logoColor=white)](https://smartsales.ai.studio.)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React 19](https://img.shields.io/badge/React_19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+[![Python](https://img.shields.io/badge/Python_3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+
+**🌐 Production Deployment URL:** [https://smartsales.ai.studio.](https://smartsales.ai.studio.)
+
+</div>
 
 ---
 
-## 1. System Architecture
+## 📌 Table of Contents
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Tech Stack & Logos](#-tech-stack--technologies)
+- [System Architecture & Flowchart](#-system-architecture--project-flow)
+- [Machine Learning & Mathematical Forecasting](#-machine-learning--mathematical-forecasting)
+- [ETL Data Pipeline](#-etl-data-engineering-pipeline)
+- [Installation & Quick Start](#-installation--quick-start)
+- [API Reference](#-api-endpoints)
+- [License](#-license)
+- [Author & Connect](#-author--connect)
+
+---
+
+## 🌟 Overview
+
+**SmartSales** is an end-to-end, full-stack sales forecasting and data intelligence platform designed for **Data Scientists, Machine Learning Engineers, and Revenue Analysts**. 
+
+Unlike mock dashboard demos, SmartSales implements **genuine statistical time-series algorithms** (Holt-Winters Double Exponential Smoothing, Linear Trend with Day-of-Week Seasonality, and Moving Average Baselines), strict chronological train/test holdout validation ($MAE$, $RMSE$, $MAPE$), a resilient automated CSV ingestion ETL pipeline with live schema profiling, What-If simulation stress testing, and real-time statistical outlier detection.
+
+---
+
+## 🎯 Key Features
+
+- **Automated CSV Ingestion & ETL Pipeline**: Delimiter sniffing, type inference (`date`, `number`, `string`), schema auto-mapping, and interactive **First 10 Sample Records Preview** table with mapped signal indicators.
+- **Statistical Time-Series Forecasting**:
+  - *Holt-Winters Double Exponential Smoothing* with grid-search hyperparameter optimization ($\alpha, \beta$).
+  - *Linear Trend + Day-of-Week Cyclical Seasonality* using Ordinary Least Squares (OLS).
+  - *Moving Average Baseline* for benchmark comparisons.
+  - Strict **20% chronological holdout test set** with real Mean Absolute Error ($MAE$), Root Mean Squared Error ($RMSE$), and Mean Absolute Percentage Error ($MAPE$).
+  - Expanding 95% Confidence Intervals ($\pm 1.96 \cdot \sigma \cdot \sqrt{h}$).
+- **Interactive What-If Sales Simulator**: Live stress-testing levers for marketing budget changes, price elasticity, seasonality, and conversion rate lifts with dual trajectory charts.
+- **Statistical Anomaly & Outlier Scanner**: Automated rolling 14-day Z-Score analysis ($Z \ge 2.0\sigma$) detecting revenue surges, drops, and zero-sales outages with incident ledgers.
+- **Product & Category Analytics**: Ingested transaction aggregations, departmental revenue shares, top/declining SKUs, and tabular CSV exports.
+- **Multi-Theme Canvas**: Instant switching between *Pure Crisp White*, *Slate Charcoal*, and *Midnight Indigo* modes.
+- **Enterprise Security**: PBKDF2 with SHA-512 cryptographic password hashing, HMAC-SHA256 signed session tokens, and cross-user data isolation.
+
+---
+
+## 🛠 Tech Stack & Technologies
+
+### Frontend
+| Technology | Badge / Logo | Purpose |
+|---|---|---|
+| **React 19** | ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) | Dynamic UI component architecture & hooks |
+| **TypeScript** | ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white) | End-to-end type safety & data contracts |
+| **Vite 8** | ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) | Blazing-fast build tool & dev middleware |
+| **Tailwind CSS v4** | ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white) | Modern utility styling with dark variant support |
+| **Recharts** | ![Recharts](https://img.shields.io/badge/Recharts-22c55e?style=flat-square&logo=chartdotjs&logoColor=white) | Composed charts, confidence bands, & tooltips |
+| **Lucide Icons** | ![Lucide](https://img.shields.io/badge/Lucide_Icons-F97316?style=flat-square&logo=feather&logoColor=white) | Crisp accessible iconography |
+
+### Backend & Data Engineering
+| Technology | Badge / Logo | Purpose |
+|---|---|---|
+| **Node.js & Express** | ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat-square&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white) | High-performance full-stack API server |
+| **Python 3.11** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) | Companion data science & ML microservice |
+| **FastAPI** | ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) | OpenAPI documented REST microservice |
+| **Pandas & NumPy** | ![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat-square&logo=pandas&logoColor=white) ![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white) | High-throughput data frames & matrix algebra |
+| **Statsmodels** | ![Statsmodels](https://img.shields.io/badge/Statsmodels-1A5276?style=flat-square&logo=scipy&logoColor=white) | Exponential smoothing & time-series analysis |
+| **Scikit-learn** | ![Scikit-learn](https://img.shields.io/badge/scikit_learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) | Linear regression & model evaluation metrics |
+| **MongoDB / File DB** | ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat-square&logo=mongodb&logoColor=white) | Persistent document storage with local fallback |
+
+---
+
+## 📐 System Architecture & Project Flow
+
+```mermaid
+flowchart TD
+    subgraph Client["🖥️ Frontend Client (React 19 + TypeScript + Tailwind)"]
+        UI["App Shell & Navigation"]
+        Dash["Dashboard Overview & Analytics"]
+        ETL_UI["CSV Import & 10-Row Dense Preview"]
+        FC_UI["Forecasting Lab & What-If Simulator"]
+        Anomaly_UI["Anomaly & Outlier Scanner"]
+    end
+
+    subgraph Server["⚙️ Server & Business Logic Layer (server.ts / Express)"]
+        Auth["Auth & PBKDF2 Crypto (JWT / Tokens)"]
+        ETL_Eng["ETL Pipeline (Type Sniffer & Normalizer)"]
+        FC_Eng["Time-Series Forecaster (Holt-Winters & OLS)"]
+        Sim_Eng["Scenario Simulation Engine"]
+        Anom_Eng["Z-Score Statistical Anomaly Detector"]
+    end
+
+    subgraph Storage["💾 Persistence Layer"]
+        DB[(JSON File Store / MongoDB Atlas)]
+        SampleStore["Pre-loaded 12-Month Retail Data"]
+    end
+
+    subgraph PythonBackend["🐍 Python ML Companion (backend/)"]
+        FastAPI_App["FastAPI Microservice (app.py)"]
+        Pandas_ETL["Pandas Pipeline (etl_pipeline.py)"]
+        Stats_FC["Statsmodels Holt-Winters (forecaster.py)"]
+    end
+
+    UI --> Auth
+    ETL_UI -->|Upload CSV Text| ETL_Eng
+    ETL_Eng -->|Sanitize & Validate| DB
+    Dash -->|Fetch Aggregates| DB
+    FC_UI -->|Run Horizon 7D/30D/90D| FC_Eng
+    FC_Eng -->|Chronological Train/Test Split| DB
+    FC_Eng -->|Store Model Run| DB
+    Sim_Eng --> FC_UI
+    Anom_Eng --> Anomaly_UI
+    SampleStore --> DB
+    FastAPI_App -.->|Alternative Endpoint| Pandas_ETL
+    Pandas_ETL -.-> Stats_FC
+```
+
+---
+
+## 📊 Machine Learning & Mathematical Forecasting
+
+### 1. Holt-Winters Double Exponential Smoothing (Level + Trend)
+$$\ell_t = \alpha y_t + (1 - \alpha)(\ell_{t-1} + b_{t-1})$$
+$$b_t = \beta(\ell_t - \ell_{t-1}) + (1 - \beta)b_{t-1}$$
+$$\hat{y}_{t+h} = \ell_t + h \cdot b_t$$
+*Parameters $\alpha \in [0.1, 0.9]$ and $\beta \in [0.05, 0.3]$ are dynamically selected through a training grid search minimizing root-mean-squared error.*
+
+### 2. Chronological Holdout Validation Metrics
+- **Mean Absolute Error (MAE)**:
+  $$MAE = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|$$
+- **Root Mean Squared Error (RMSE)**:
+  $$RMSE = \sqrt{\frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2}$$
+- **Mean Absolute Percentage Error (MAPE)**:
+  $$MAPE = \frac{1}{K} \sum_{y_i \ne 0} \frac{|y_i - \hat{y}_i|}{|y_i|} \times 100\%$$
+
+### 3. Expanding 95% Confidence Bands
+$$\text{Interval} = \hat{y}_{t+h} \pm 1.96 \cdot \sigma_{\text{residuals}} \cdot \sqrt{1 + \frac{h}{10}}$$
+
+---
+
+## ⚡ ETL Data Engineering Pipeline
 
 ```
-[ Client: React + TypeScript + Vite + Tailwind CSS + Recharts ]
-                            │
-                       HTTP / REST
-                            │
-                            ▼
-    [ Express Server (server.ts) / FastAPI (backend/app.py) ]
-      ├── Ingestion & ETL Pipeline (server/etl.ts | etl_pipeline.py)
-      │     └── CSV Sniffing, Type Inference, Schema Normalization, Validation
-      ├── Time-Series Forecasting (server/forecaster.ts | forecaster.py)
-      │     └── Holt's Linear, Grid Search (α, β), OLS Trend + Seasonality, MAE/RMSE/MAPE
-      └── Central Storage Layer (server/db.ts)
-            └── Persistent File Store (.data/db.json) with MongoDB Atlas Adapter
+[Raw CSV Text] ──► [PapaParse / Sniffer] ──► [Type Inference (Date / Number)] 
+       │
+       ▼
+[Column Mapping (Date, Sales, Product, Category, Qty)]
+       │
+       ▼
+[Date Standardization (ISO YYYY-MM-DD)] ──► [Outlier & Negative Detection]
+       │
+       ▼
+[First 10 Sample Records Preview Table] ──► [Validation Log & Ingestion DB]
 ```
 
 ---
 
-## 2. Implemented Features
+## 🚀 Installation & Quick Start
 
-1. **Authentication & Identity Management**
-   - Full user registration, login, and token session authorization.
-   - Passwords hashed with PBKDF2 using SHA-512 and unique salt.
-   - Profile management, password modification, and forgot-password reset workflow.
-   - Built-in 1-Click "Demo Analyst" account pre-seeded with 12 months of transactions.
-
-2. **Automated CSV Data Ingestion & ETL Pipeline**
-   - File drag-and-drop or file system browse.
-   - Automated delimiter sniffing, header extraction, and column data type inference (`date`, `number`, `string`).
-   - Interactive schema mapping: Date, Sales/Revenue, Product, Category, Units Sold, and Order ID.
-   - Quality audit report: Detects unparseable dates, negative revenue, duplicate records, and calculates ingestion runtime in milliseconds.
-
-3. **Grounded Sales Analytics**
-   - Real-time aggregation of ingested sales transactions.
-   - Total volume, transaction count, average order value (AOV), and departmental revenue breakdown.
-   - Daily sales trends with 7-day rolling moving average.
-   - Day-of-week cyclical distribution analysis.
-   - Exportable analytics tables in CSV format.
-
-4. **Statistical Machine Learning Forecasting**
-   - **Holt-Winters (Double Exponential Smoothing)**: Dynamically estimates level ($\ell_t$) and trend ($b_t$) with optimal parameter tuning ($\alpha, \beta$) via grid search on training RMSE.
-   - **Linear Trend with 7-Day Seasonality**: Fits Ordinary Least Squares (OLS) secular trend plus day-of-week cyclical residuals.
-   - **7-Day Moving Average Baseline**: Trailing benchmark comparison.
-   - **Chronological Train/Test Holdout Split**: 20% holdout split avoiding data leakage or lookahead bias.
-   - **Real Metrics**: Genuine Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and Mean Absolute Percentage Error (MAPE).
-   - **Uncertainty Intervals**: Expanding 95% confidence bounds ($\pm 1.96 \cdot \sigma \cdot \sqrt{h}$) derived from model residual variance.
-   - **Downloadable Forecast Schedules**: Export full future predictions and historical fitted values to CSV.
-
-5. **Product & SKU Performance**
-   - SKU-level revenue, units shipped, order count, and average unit price realization.
-   - Instant search and multi-column sorting (by revenue, units, or order volume).
-   - Export product catalog metrics directly to CSV.
-
-6. **Executive Performance Reports & Audit History**
-   - Generates executive audit reports synthesized from actual transaction distributions.
-   - Audit trail of previous forecast runs with historical model accuracy benchmarks.
-   - Print-to-PDF ready views.
-
-7. **Theme & User Interface**
-   - Clean, professional white background default with deep indigo/blue hierarchy.
-   - Dark slate mode support with persistent preference in `localStorage`.
-   - Adheres to the 3-Zone Top Bar Contract and Zero-Pill typography discipline.
-   - Tabular figures (`tabular-nums`) across all numbers, metrics, and data tables.
-
----
-
-## 3. Quick Start & Run Commands
-
-### Development Server (Full-Stack Express + React Vite)
-
+### 1. Clone the Repository
 ```bash
-# 1. Install all dependencies
-npm install
+git clone https://github.com/your-username/smartsales.git
+cd smartsales
+```
 
-# 2. Run dev server (Express backend + Vite client on port 3000)
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+Copy `.env.example` to `.env`:
+```bash
+cp .env.example .env
+```
+*(Optional: Provide `MONGODB_URI` for MongoDB Atlas; defaults to persistent file storage at `.data/smartsales_db.json`).*
+
+### 4. Run Development Server
+```bash
 npm run dev
 ```
+Visit **`http://localhost:3000`** in your browser.
 
-Visit `http://localhost:3000` in your browser.
-
-### Production Build
-
+### 5. Production Build
 ```bash
 npm run build
 npm start
 ```
 
-### Python Companion Microservice (Optional)
-
-If running the Python FastAPI / Statsmodels backend:
-
+### 6. (Optional) Run Python FastAPI Microservice
 ```bash
 cd backend
 python -m venv venv
@@ -105,45 +207,49 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
 ```
-
-FastAPI OpenAPI interactive documentation will be available at `http://localhost:8000/docs`.
+*Interactive Swagger docs available at `http://localhost:8000/docs`.*
 
 ---
 
-## 4. Environment Variables
+## 📡 API Endpoints
 
-Create a `.env` file in the root directory (based on `.env.example`):
-
-| Variable | Description | Default / Example |
+| Method | Endpoint | Description |
 |---|---|---|
-| `PORT` | Web server port | `3000` |
-| `SECRET_KEY` | Cryptographic secret for tokens | Random 64-char hex string |
-| `MONGODB_URI` | MongoDB connection URI (optional) | `mongodb+srv://...` |
-| `MONGODB_DATABASE` | Database name | `smartsales` |
-| `CORS_ORIGINS` | Allowed origins | `*` |
-| `MODEL_DIR` | Saved model artifacts path | `./models` |
+| `POST` | `/api/auth/register` | Register new analyst account |
+| `POST` | `/api/auth/login` | Sign in & receive session token |
+| `GET` | `/api/auth/me` | Fetch authenticated user profile |
+| `POST` | `/api/datasets/upload/profile` | Sniff CSV headers & infer types |
+| `POST` | `/api/datasets/upload/import` | Validate & persist dataset via ETL |
+| `GET` | `/api/datasets/:id/analytics` | Fetch sales time-series & category aggregates |
+| `POST` | `/api/datasets/:id/forecast` | Run Holt-Winters / Linear model with holdout split |
+| `GET` | `/api/forecasts/:id/export` | Export forecast schedule as CSV |
+| `POST` | `/api/reports` | Compile executive audit report |
+| `GET` | `/api/samples/download` | Download 12-month raw CSV template |
+| `GET` | `/api/health` | Service health status check |
 
 ---
 
-## 5. MongoDB Atlas Setup Instructions
+## 📄 License
 
-1. Create a free cluster on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
-2. Under **Database Access**, create a database user and generate a secure password.
-3. Under **Network Access**, add IP `0.0.0.0/0` (or your host IP address).
-4. Click **Connect** → **Drivers** and copy your connection string.
-5. In `.env`, set:
-   ```env
-   MONGODB_URI="mongodb+srv://<username>:<password>@cluster0.mongodb.net/smartsales?retryWrites=true&w=majority"
-   MONGODB_DATABASE="smartsales"
-   ```
-6. The application will connect directly to MongoDB collections (`users`, `datasets`, `sales_records`, `forecasts`, `etl_logs`, `reports`). If `MONGODB_URI` is omitted, the app gracefully uses the high-performance persistent local JSON store at `.data/smartsales_db.json`.
+Distributed under the **MIT License**. See [`LICENSE`](./LICENSE) for full details.
 
 ---
 
-## 6. Pre-Loaded Demonstration Data
+## 👨‍💻 Author & Connect
 
-For quick exploration without preparing a CSV:
-- **Email**: `analyst@smartsales.io`
-- **Password**: `SalesDemo2026!`
-- Or simply click the **"Sign in as Demo Analyst (1-Click)"** button on the Login screen!
-- Pre-loaded with **365 days of omnichannel retail transactions** across 10 products and 4 core departments.
+<div align="left">
+
+**Sonu Kumar**  
+*Full-Stack Engineer & Data/ML Enthusiast*
+
+- 🌐 **Live Platform Application**: [https://smartsales.ai.studio.](https://smartsales.ai.studio.)
+- 💼 **Personal Portfolio**: [https://animated-portfolio-pro.vercel.app/](https://animated-portfolio-pro.vercel.app/)
+- 🔗 **LinkedIn Profile**: [https://www.linkedin.com/in/sonu-kumar-3234bb344/](https://www.linkedin.com/in/sonu-kumar-3234bb344/)
+- 📧 **Direct Email**: [sonukr7435@gmail.com](mailto:sonukr7435@gmail.com)
+
+</div>
+
+---
+<div align="center">
+  <sub>Built with ❤️ by Sonu Kumar · SmartSales Enterprise Forecasting & Analytics Platform</sub>
+</div>
